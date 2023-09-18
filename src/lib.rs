@@ -11,10 +11,6 @@ impl Config {
     pub fn build(
         mut args: impl Iterator<Item = String>
     ) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("not enough arguments");
-        }
-
         args.next();
 
         let query = match args.next() {
@@ -59,7 +55,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
-        .filter(|line| linecontains(query))
+        .filter(|line| line.contains(query))
         .collect()
 }
 
