@@ -1,5 +1,5 @@
 [package]
-name = "viccj_minigrep"
+name = "minigrep"
 version = "0.1.0"
 edition = "2021"
 
